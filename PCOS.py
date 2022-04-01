@@ -1,10 +1,21 @@
-
 import streamlit as st
 
-with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
+def get_user_name():
+    return 'John'
 
-    with st.spinner("Loading..."):
-        time.sleep(5)
-    st.success("Done!")
+with st.echo():
+    # Everything inside this block will be both printed to the screen
+    # and executed.
+
+    def get_punctuation():
+        return '!!!'
+
+    greeting = "Hi there, "
+    value = get_user_name()
+    punctuation = get_punctuation()
+
+    st.write(greeting, value, punctuation)
+
+# And now we're back to _not_ printing to the screen
+foo = 'bar'
+st.write('Done!')
