@@ -1,21 +1,14 @@
 import streamlit as st
 
-def get_user_name():
-    return 'John'
+# Using object notation
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
 
-with st.echo():
-    # Everything inside this block will be both printed to the screen
-    # and executed.
-
-    def get_punctuation():
-        return '!!!'
-
-    greeting = "Hi there, "
-    value = get_user_name()
-    punctuation = get_punctuation()
-
-    st.write(greeting, value, punctuation)
-
-# And now we're back to _not_ printing to the screen
-foo = 'bar'
-st.write('Done!')
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
