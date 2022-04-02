@@ -33,7 +33,7 @@ def user_input_features():
   Cycle = form.slider('ประจำเดือนมากี่วัน',0,31,7)
   Cycle = form.slider('ประจำเดือนมากี่วัน',0,31,7)
   CycleLength= form.slider('ระยะห่างของรอบเดือน ห่างกันกี่วัน',0,60,16)
-  hairGrowth = form.slider('ขนตามจุดต่างๆเพิ่มขึ้นหรือไม่ ',0,1,1)
+  HairGrowth = form.slider('ขนตามจุดต่างๆเพิ่มขึ้นหรือไม่ ',0,1,1)
   SkinDarkening= form.slider('ผิวดำคล้ำตามข้อต่างๆหรือไม่',0,1,0)
   Pimples= form.slider('สิวเพิ่มขึ้นหรือไม่',0,1,1)
   Fastfood= form.slider('รับประทานอาหารที่มีไขมันสูง (Fastfood) ',0,1,0)
@@ -98,13 +98,13 @@ def user_input_features():
   left.write(' # --------------------------------------')
   
   
-  
+  submit = form.form_submit_button("ประเมินความเสี่ยง")
   if submit:
     pipe =  { 'Age (yrs)': Age,
              'Weight (Kg)': Weight,
              'Cycle(R/I)': Cycle,
              'Cycle length(days)': CycleLength,
-             'hair growth(Y/N)': hairGrowth,
+             'hair growth(Y/N)': HairGrowth,
              'Skin darkening (Y/N)': SkinDarkening,
              'Pimples(Y/N)': Pimples,
              'Fast food (Y/N)': Fastfood,
@@ -113,7 +113,7 @@ def user_input_features():
              'Weight gain(Y/N)': WeightGain}
     features = pd.DataFrame(pipe, index=[0])
     return features
-submit = form.form_submit_button("ประเมินความเสี่ยง")
+
 app  = load('PcosApp.joblib')
 
 name = ['''negative
