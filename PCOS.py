@@ -99,20 +99,20 @@ def user_input_features():
   
   
   submit = form.form_submit_button("ประเมินความเสี่ยง")
-  if submit:
-    pipe =  { 'Age (yrs)': Age,
-             'Weight (Kg)': Weight,
-             'Cycle(R/I)': Cycle,
-             'Cycle length(days)': CycleLength,
-             'hair growth(Y/N)': HairGrowth,
-             'Skin darkening (Y/N)': SkinDarkening,
-             'Pimples(Y/N)': Pimples,
-             'Fast food (Y/N)': Fastfood,
-             'Follicle No. (L)': FollicleL,
-             'Follicle No. (R)': FollicleR,
-             'Weight gain(Y/N)': WeightGain}
-    features = pd.DataFrame(pipe, index=[0])
-    return features
+if submit:
+  pipe =  { 'Age (yrs)': Age,
+           'Weight (Kg)': Weight,
+           'Cycle(R/I)': Cycle,
+           'Cycle length(days)': CycleLength,
+           'hair growth(Y/N)': HairGrowth,
+           'Skin darkening (Y/N)': SkinDarkening,
+           'Pimples(Y/N)': Pimples,
+           'Fast food (Y/N)': Fastfood,
+           'Follicle No. (L)': FollicleL,
+           'Follicle No. (R)': FollicleR,
+           'Weight gain(Y/N)': WeightGain}
+  features = pd.DataFrame(pipe, index=[0])
+  return features
 
 app  = load('PcosApp.joblib')
 
