@@ -97,7 +97,7 @@ def user_input_features():
 
 app  = load('PcosApp.joblib')
 
-name = ['''negative
+name = (['''negative
 
 ท่านมีความเสี่ยงน้อย
 
@@ -115,7 +115,7 @@ name = ['''negative
 https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
 
-''']
+''']name_color="red")
 
 df = user_input_features()
 
