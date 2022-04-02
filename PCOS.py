@@ -1,15 +1,9 @@
 import streamlit as st
-import streamlit.components.v1 as components
-
-
-
-
-
-import streamlit as st
 import pandas as pd
 import joblib
 from joblib import dump, load
 from PIL import Image
+import streamlit.components.v1 as components
 
 HairG = Image.open("hairgrowP.jpg")
 Skindarken = Image.open("skin darkenP.jpg")
@@ -143,6 +137,6 @@ st.write(prediction_proba)
 
 st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
  ว่ามีการประเมินได้ถูกต้องมากแค่ไหน ''')
-st.write(' ### ')
+
 # embed streamlit docs in a streamlit app
 components.iframe("https://forms.gle/u7GK9hvWkpWjJjaD9")
