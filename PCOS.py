@@ -27,7 +27,6 @@ form = left.form("template_form")
 
 # รับ User input feature  X 
 def user_input_features():
-  
   Age = form.slider('อายุเท่าไหร่',0,100,22)
   Weight= form.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
   Cycle = form.slider('ประจำเดือนมากี่วัน',0,31,7)
