@@ -17,18 +17,14 @@ st.write(""" ## แอปประเมินความเสี่ยงโ�
 """)
 left, right = st.columns(2)
 left.write('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
-left.write('กรอกข้อมูล')
-
-
-
-
-
+left.subheader('กรอกข้อมูล')
+st.sidebar.write('--------------------------------------------------------------------')
 # รับ User input feature  X 
 def user_input_features():
   
-  Age = left.slider('อายุเท่าไหร่',0,100,22)
-  left.write('อายุ', Age,'ปี')
-  left.write(' # --------------------------------------')
+  Age = st.slider('อายุเท่าไหร่',0,100,22)
+  st.sidebar.write('อายุ', Age,'ปี')
+  st.sidebar.write(' # --------------------------------------')
   
   Weight= st.sidebar.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
   st.sidebar.write('น้ำหนัก', Weight, 'กิโลกรัม')
@@ -122,20 +118,20 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 
 df = user_input_features()
 
-st.subheader('ทำการประเมินความเสี่ยง')
-st.write(df)
+right.subheader('ทำการประเมินความเสี่ยง')
+right.write(df)
 
 prediction = app.predict(df)
 prediction_proba = app.predict_proba(df)
 
 
-st.subheader('ผลการทำนาย (Prediction)')
+right.subheader('ผลการทำนาย (Prediction)')
 #st.write([prediction])
-st.write(name[prediction[0]])
+right.write(name[prediction[0]])
 
-st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-st.write(prediction_proba)
+right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+right.write(prediction_proba)
 
 
 st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
