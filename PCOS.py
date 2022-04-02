@@ -3,8 +3,6 @@ import pandas as pd
 import joblib
 from joblib import dump, load
 from PIL import Image
-import streamlit.components.v1 as components
-from streamlit.components.v1 import iframe
 
 HairG = Image.open("hairgrowP.jpg")
 Skindarken = Image.open("skin darkenP.jpg")
@@ -17,23 +15,23 @@ st.write(""" ## แอปประเมินความเสี่ยงโ�
 <<< หากไม่พบแบบประเมิน คลิกลูกศรมุมซ้ายบนเพื่อเปิดทำการประเมินความเสี่ยง
 
 """)
-left, right, = st.columns(2)
 
 left.write('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
 left.write('กรอกข้อมูล')
+st.sidebar.write('--------------------------------------------------------------------')
 
 
-
+left, right = st.columns(2)
 
 # รับ User input feature  X 
 def user_input_features():
   
-  Age = left.slider('อายุเท่าไหร่',0,100,22)
-  left.write('อายุ', Age,'ปี')
-  left.write(' # --------------------------------------')
+  Age = st.left.slider('อายุเท่าไหร่',0,100,22)
+  st.left.write('อายุ', Age,'ปี')
+  st.left.write(' # --------------------------------------')
   
-  Weight= left.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
-  left.write('น้ำหนัก', Weight, 'กิโลกรัม')
+  Weight= st.sidebar.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
+  st.sidebar.write('น้ำหนัก', Weight, 'กิโลกรัม')
   st.sidebar.write(' # --------------------------------------')
   
   Cycle = st.sidebar.slider('ประจำเดือนมากี่วัน',0,31,7)
@@ -124,26 +122,22 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 
 df = user_input_features()
 
-right.subheader('ทำการประเมินความเสี่ยง')
-right.write(df)
+st.subheader('ทำการประเมินความเสี่ยง')
+st.write(df)
 
 prediction = app.predict(df)
 prediction_proba = app.predict_proba(df)
 
-st.balloons()
-
 
 st.subheader('ผลการทำนาย (Prediction)')
 #st.write([prediction])
-right.success(name[prediction[0]])
+st.write(name[prediction[0]])
 
-right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-right.write(prediction_proba)
+st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+st.write(prediction_proba)
 
 
-right.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
+st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
  ว่ามีการประเมินได้ถูกต้องมากแค่ไหน ''')
-
-# embed streamlit docs in a streamlit app
-components.iframe("https://forms.gle/u7GK9hvWkpWjJjaD9")
+st.write(' ### https://forms.gle/u7GK9hvWkpWjJjaD9')
