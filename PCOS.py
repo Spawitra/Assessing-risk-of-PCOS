@@ -4,6 +4,7 @@ import joblib
 from joblib import dump, load
 from PIL import Image
 import streamlit.components.v1 as components
+from streamlit.components.v1 import iframe
 
 HairG = Image.open("hairgrowP.jpg")
 Skindarken = Image.open("skin darkenP.jpg")
