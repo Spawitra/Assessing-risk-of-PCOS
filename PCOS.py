@@ -116,8 +116,8 @@ with right:
 
 
   st.subheader('ผลการทำนาย (Prediction)')
-  st.success(name[prediction[0]])
-  if name[prediction[1]]:
+  st.write(name[prediction[0]])
+  if name[prediction[0]]:
     st.error(name[1])
   
     
