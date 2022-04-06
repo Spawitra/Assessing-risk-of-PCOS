@@ -20,7 +20,7 @@ left, right = st.columns(2)
 
 
 with left:
-  st.write('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
+  st.header('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
   st.subheader('กรอกข้อมูล')
   def user_input_features():
     Age = st.slider('อายุเท่าไหร่',0,100,22)
@@ -54,15 +54,15 @@ with left:
     st.write(' # --------------------------------------')
 
 
-    Fastfood= st.sidebar.slider('รับประทานอาหารที่มีไขมันสูง (Fastfood) ',0,1,0)
-    st.sidebar.write('ทานอาหารที่มีไขมันสูงหรือไม่', Fastfood)
-    st.sidebar.caption('ชอบรับประทานอาหารที่มีไขมันสูง หรือ ทานบ่อยครั้ง')
-    st.sidebar.write(' # --------------------------------------')
+    Fastfood= st.slider('รับประทานอาหารที่มีไขมันสูง (Fastfood) ',0,1,0)
+    st.write('ทานอาหารที่มีไขมันสูงหรือไม่', Fastfood)
+    st.caption('ชอบรับประทานอาหารที่มีไขมันสูง หรือ ทานบ่อยครั้ง')
+    st.write(' # --------------------------------------')
 
 
-    FollicleL= st.sidebar.slider('หน้ามันรูขุมขนทางด้านซ้าย กว้างขึ้นหรือไม่',0,1,1)
-    st.sidebar.write('หน้ามันและรูขุมขนกว้างทางด้านซ้ายหรือไม่', FollicleL)
-    st.sidebar.write(' # --------------------------------------')
+    FollicleL= st.slider('หน้ามันรูขุมขนทางด้านซ้าย กว้างขึ้นหรือไม่',0,1,1)
+    st.write('หน้ามันและรูขุมขนกว้างทางด้านซ้ายหรือไม่', FollicleL)
+    st.write(' # --------------------------------------')
 
 
     FollicleR= st.sidebar.slider('หน้ามันรูขุมขนทางด้านขวา กว้างขึ้นหรือไม่',0,1,1)
@@ -70,10 +70,10 @@ with left:
     st.sidebar.write(' # --------------------------------------')
 
 
-    WeightGain= st.sidebar.slider( 'ช่วงนี้น้ำหนักเพิ่มขึ้นหรือไม่',0,1,1)
-    st.sidebar.caption('น้ำหนักเพิ่มขึ้นแบบรวดเร็วหรือไม่ เช่น จาก60เพิ่มไป 70 ในระยะเวลาสั้นๆ')
-    st.sidebar.write('น้ำหนักเพิ่มขึ้น', WeightGain)
-    st.sidebar.write(' # --------------------------------------')
+    WeightGain= st.slider( 'ช่วงนี้น้ำหนักเพิ่มขึ้นหรือไม่',0,1,1)
+    st.caption('น้ำหนักเพิ่มขึ้นแบบรวดเร็วหรือไม่ เช่น จาก60เพิ่มไป 70 ในระยะเวลาสั้นๆ')
+    st.write('น้ำหนักเพิ่มขึ้น', WeightGain)
+    st.write(' # --------------------------------------')
 
 
     pipe =  { 'Age (yrs)': Age,
@@ -114,21 +114,39 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 ''']
 
 df = user_input_features()
+if name[0]:
+  st.success('''negative
 
-right.subheader('ทำการประเมินความเสี่ยง')
-right.write(df)
+ท่านมีความเสี่ยงน้อย
+''')
+if name[1]:
+  st.error('''possitive
 
-prediction = app.predict(df)
-prediction_proba = app.predict_proba(df)
+ท่านมีความเสี่ยง 
 
 
-right.subheader('ผลการทำนาย (Prediction)')
-#st.write([prediction])
-right.write(name[prediction[0]])
+สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
+*ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
+ศึกษาเกี่ยวกับโรคเพิ่มเติม  
+https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
-right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-right.write(prediction_proba)
+''')
+  
+with right:
+  right.subheader('ทำการประเมินความเสี่ยง')
+  right.write(df)
+
+  prediction = app.predict(df)
+  prediction_proba = app.predict_proba(df)
+
+
+  st.subheader('ผลการทำนาย (Prediction)')
+  #st.write([prediction])
+  st.write(name[prediction[0]])
+
+  right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+  right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+  right.write(prediction_proba)
 
 
 st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
