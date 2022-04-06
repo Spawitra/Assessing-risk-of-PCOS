@@ -114,23 +114,7 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 ''']
 
 df = user_input_features()
-if name[0]:
-  st.success('''negative
 
-ท่านมีความเสี่ยงน้อย
-''')
-if name[1]:
-  st.error('''possitive
-
-ท่านมีความเสี่ยง 
-
-
-สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
-*ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
-ศึกษาเกี่ยวกับโรคเพิ่มเติม  
-https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
-
-''')
   
 with right:
   right.subheader('ทำการประเมินความเสี่ยง')
@@ -143,6 +127,21 @@ with right:
   st.subheader('ผลการทำนาย (Prediction)')
   #st.write([prediction])
   st.write(name[prediction[0]])
+    if name[0]:
+      st.success('''negative
+      ท่านมีความเสี่ยงน้อย''')
+    if name[1]:
+      st.error('''possitive
+
+      ท่านมีความเสี่ยง 
+
+
+      สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
+      *ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
+      ศึกษาเกี่ยวกับโรคเพิ่มเติม  
+      https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
+
+      ''')
 
   right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
   right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
