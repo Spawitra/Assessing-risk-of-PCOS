@@ -1,23 +1,23 @@
-import streamlit as st
-import pandas as pd
-import joblib
-from joblib import dump, load
-from PIL import Image
-HairG = Image.open("hairgrowP.jpg")
-Skindarken = Image.open("skin darkenP.jpg")
+  import streamlit as st
+  import pandas as pd
+  import joblib
+  from joblib import dump, load
+  from PIL import Image
+  HairG = Image.open("hairgrowP.jpg")
+  Skindarken = Image.open("skin darkenP.jpg")
 
 
-st.write(''' ## แอปประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ
+  st.write(''' ## แอปประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ
 
-ว่าคุณจะมีความเสี่ยงเป็นโรคถุงน้ำในรังไข่หลายใบหรือไม่
+  ว่าคุณจะมีความเสี่ยงเป็นโรคถุงน้ำในรังไข่หลายใบหรือไม่
 
-''')
+  ''')
 
-left, mid, right = st.columns(3)
- with left:
-  st.header('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
-  st.subheader('กรอกข้อมูล')
-  def user_input_features():
+  left, mid, right = st.columns(3)
+  with left:
+   st.header('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
+   st.subheader('กรอกข้อมูล')
+   def user_input_features():
     Age = left.slider('อายุเท่าไหร่',0,100,22)
     st.write('อายุ', Age,'ปี')
     Weight= left.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
@@ -82,46 +82,40 @@ left, mid, right = st.columns(3)
 
     features = pd.DataFrame(pipe, index=[0])
     return features
-
+ 
 app  = load('PcosApp.joblib')
 
-name = ['''negative
-      ท่านมีความเสี่ยงน้อย''', '''possitive
+  name = ['''negative
+        ท่านมีความเสี่ยงน้อย''', '''possitive
 
-ท่านมีความเสี่ยง 
-
-
-สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
-*ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
-ศึกษาเกี่ยวกับโรคเพิ่มเติม  
-https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
+  ท่านมีความเสี่ยง 
 
 
-''']
+  สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
+  *ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
+  ศึกษาเกี่ยวกับโรคเพิ่มเติม  
+  https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
 
-    
-df = user_input_features()
-
+  ''']
+ df = user_input_features()
  with right:
-   st.subheader('ทำการประเมินความเสี่ยง')
-   st.write(df)
-   prediction = app.predict(df)
-   prediction_proba = app.predict_proba(df)
-   st.subheader('ผลการทำนาย (Prediction)')
+  st.subheader('ทำการประเมินความเสี่ยง')
+  st.write(df)
+  prediction = app.predict(df)
+  prediction_proba = app.predict_proba(df)
+  st.subheader('ผลการทำนาย (Prediction)')
+  if name[prediction[0]]):
+   st.st.success(name[0])
+  if name[prediction[1]]:
+   st.error(name[1])
 
-   if name[prediction[0]]):
-     st.st.success(name[0])
-
-   if name[prediction[1]]:
-     st.error(name[1])
-
-   st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-   st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-   st.write(prediction_proba)
+  st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+  st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+  st.write(prediction_proba)
 
 
 
-st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
+ st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
  ว่ามีการประเมินได้ถูกต้องมากแค่ไหน ''')
-st.write(' ### https://forms.gle/u7GK9hvWkpWjJjaD9')
+ st.write(' ### https://forms.gle/u7GK9hvWkpWjJjaD9')
