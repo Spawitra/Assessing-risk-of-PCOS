@@ -102,7 +102,7 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 
 ''']
 
-if a == 0:
+if name[0]:
   st.success(name)
 else:
     st.error(name)
@@ -120,7 +120,7 @@ with right:
 
   st.subheader('ผลการทำนาย (Prediction)')
   #st.write([prediction])
-  st.write(name[prediction[a]])
+  st.write(name[prediction[0]])
  
   
 
