@@ -102,10 +102,7 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 
 ''']
 
-if name[0]:
-  st.success(name)
-else:
-    st.error(name)
+
     
 df = user_input_features()
 
@@ -119,15 +116,19 @@ with right:
 
 
   st.subheader('ผลการทำนาย (Prediction)')
+  if name[prediction[0]]:
+    st.success(name)
+  else:
+    st.error(name)
+  st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+  st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+  st.write(prediction_proba)
+
   #st.write([prediction])
-  st.write(name[prediction[0]])
- 
+  
   
 
-  right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-  right.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-  right.write(prediction_proba)
-
+  
 
 st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
  ว่ามีการประเมินได้ถูกต้องมากแค่ไหน ''')
