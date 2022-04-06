@@ -88,8 +88,8 @@ with left:
 
 app  = load('PcosApp.joblib')
 
-name = [[st.success('''negative
-      ท่านมีความเสี่ยงน้อย''')], [st.error('''possitive
+name = ['''negative
+      ท่านมีความเสี่ยงน้อย''', '''possitive
 
 ท่านมีความเสี่ยง 
 
@@ -100,8 +100,13 @@ name = [[st.success('''negative
 https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
 
-''')]]
+''']
 
+if a == 0:
+  st.success(name)
+else:
+    st.error(name)
+    
 df = user_input_features()
 
   
@@ -116,6 +121,7 @@ with right:
   st.subheader('ผลการทำนาย (Prediction)')
   #st.write([prediction])
   st.write(name[prediction[0]])
+ 
   
 
   right.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
