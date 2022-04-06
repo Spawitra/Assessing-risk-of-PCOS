@@ -78,22 +78,21 @@ with left:
              'Weight gain(Y/N)': WeightGain}
     features = pd.DataFrame(pipe, index=[0])
     return features
+  app  = load('PcosApp.joblib')
 
-app  = load('PcosApp.joblib')
+  name = ['''negative
+  ท่านมีความเสี่ยงน้อย''', '''possitive
 
-name = ['''negative
-ท่านมีความเสี่ยงน้อย''', '''possitive
-
-ท่านมีความเสี่ยง 
-
-
-สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
-*ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
-ศึกษาเกี่ยวกับโรคเพิ่มเติม  
-https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
+  ท่านมีความเสี่ยง 
 
 
-''']
+  สามรถดูแลสุขภาพตนเอง  โดยการออกกำลังกาย และรับทานอาหารครบ 5 หมู่
+  *ควร เลี่ยงทานอาหารที่มีไขมันสูง*  และพบแพทย์ผู้เชี่ยวชาญสำหรับการวินิจฉัยโรคต่อไป 
+  ศึกษาเกี่ยวกับโรคเพิ่มเติม  
+  https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
+
+
+  ''']
   df = user_input_features()
   with right:
     st.subheader('ทำการประเมินความเสี่ยง')
