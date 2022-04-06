@@ -108,8 +108,8 @@ df = user_input_features()
 
   
 with right:
-  right.subheader('ทำการประเมินความเสี่ยง')
-  right.write(df)
+  st.subheader('ทำการประเมินความเสี่ยง')
+  st.write(df)
 
   prediction = app.predict(df)
   prediction_proba = app.predict_proba(df)
