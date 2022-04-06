@@ -1,10 +1,10 @@
-  import streamlit as st
-  import pandas as pd
-  import joblib
-  from joblib import dump, load
-  from PIL import Image
-  HairG = Image.open("hairgrowP.jpg")
-  Skindarken = Image.open("skin darkenP.jpg")
+import streamlit as st
+import pandas as pd
+import joblib
+from joblib import dump, load
+from PIL import Image
+HairG = Image.open("hairgrowP.jpg")
+Skindarken = Image.open("skin darkenP.jpg")
 
 
   st.write(''' ## แอปประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ
