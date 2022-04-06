@@ -40,15 +40,12 @@ with left:
     st.write('ขนเพิ่มขึ้นหรือไม่', hairGrowth)
     st.image(HairG, use_column_width = True)
     st.write(' # --------------------------------------')
-
     SkinDarkening= st.slider('ผิวดำคล้ำตามข้อต่างๆหรือไม่',0,1,0)
     st.caption('ผิวคล้ำดำหนา ตามจุด ข้อนิ้ว ข้อศอก คอ หรือ รักแร้ เป็นต้น')
     st.image(Skindarken, use_column_width = True)
     st.write('ผิวดำคล้ำตามข้อต่างๆ', SkinDarkening)
     st.write(' # --------------------------------------')
-
-
-    Pimples= st.sidebar.slider('สิวเพิ่มขึ้นหรือไม่',0,1,1)
+    Pimples= st.slider('สิวเพิ่มขึ้นหรือไม่',0,1,1)
     st.caption('สังเกตตนเองหากปกติไม่มีสิว แล้วสิวเกิดขึ้นมาเกินไป หากมีสิวขึ้นเยอะอยู่แล้วไม่ได้เพิ่มขึ้นถือว่าปกติ')
     st.write('สิวเกิดเพิ่มขึ้น', Pimples)
     st.write(' # --------------------------------------')
@@ -65,9 +62,9 @@ with left:
     st.write(' # --------------------------------------')
 
 
-    FollicleR= st.sidebar.slider('หน้ามันรูขุมขนทางด้านขวา กว้างขึ้นหรือไม่',0,1,1)
-    st.sidebar.write('หน้ามันและรูขุมขนกว้างทางด้านขวาหรือไม่' , FollicleR)
-    st.sidebar.write(' # --------------------------------------')
+    FollicleR= st.slider('หน้ามันรูขุมขนทางด้านขวา กว้างขึ้นหรือไม่',0,1,1)
+    st.write('หน้ามันและรูขุมขนกว้างทางด้านขวาหรือไม่' , FollicleR)
+    st.write(' # --------------------------------------')
 
 
     WeightGain= st.slider( 'ช่วงนี้น้ำหนักเพิ่มขึ้นหรือไม่',0,1,1)
@@ -126,12 +123,11 @@ with right:
 
   st.subheader('ผลการทำนาย (Prediction)')
   #st.write([prediction])
-  st.write(name[prediction[0]])
-    if name[0]:
-      st.success('''negative
+  if name[prediction[0]]:
+    st.success('''negative
       ท่านมีความเสี่ยงน้อย''')
-    if name[1]:
-      st.error('''possitive
+  if name[prediction[1]]:
+    st.error('''possitive
 
       ท่านมีความเสี่ยง 
 
