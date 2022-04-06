@@ -22,10 +22,10 @@ with left:
   st.subheader('กรอกข้อมูล')
   
   def user_input_features():
-    Age = left.slider('อายุเท่าไหร่',0,100,22)
-    st.left.write('อายุ', Age,'ปี')
-    Weight= left.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
-    st.write('น้ำหนัก', Weight, 'กิโลกรัม')
+    Age = left.slider('อายุเท่าไหร่',0,100,22):
+      st.write('อายุ', Age,'ปี')
+    Weight= left.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79):
+      st.write('น้ำหนัก', Weight, 'กิโลกรัม')
     st.write(' # --------------------------------------')
     Cycle = left.slider('ประจำเดือนมากี่วัน',0,31,7)
     st.write('รอบเดือนมา', Cycle, 'วัน')
