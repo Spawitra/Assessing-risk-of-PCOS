@@ -88,8 +88,8 @@ with left:
 
 app  = load('PcosApp.joblib')
 
-name = [(st.success('''negative
-      ท่านมีความเสี่ยงน้อย''')), (st.error('''possitive
+name = [[st.success('''negative
+      ท่านมีความเสี่ยงน้อย''')], [st.error('''possitive
 
 ท่านมีความเสี่ยง 
 
@@ -100,7 +100,7 @@ name = [(st.success('''negative
 https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
 
-'''))]
+''')]]
 
 df = user_input_features()
 
