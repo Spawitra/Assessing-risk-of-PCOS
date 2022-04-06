@@ -116,10 +116,12 @@ with right:
 
 
   st.subheader('ผลการทำนาย (Prediction)')
-  if name[prediction[0]]:
-    st.success(name[0])
-  else:
+  st.success(name[prediction[0]])
+  if name[prediction[1]]:
     st.error(name[1])
+  
+    
+    
   st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
   st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
   st.write(prediction_proba)
