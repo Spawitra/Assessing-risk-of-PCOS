@@ -16,10 +16,26 @@ st.write(''' ## แอปประเมินความเสี่ยงโ�
 
 left, mid, right = st.columns(3)
 
-
+with right:
+  st.subheader('ทำการประเมินความเสี่ยง')
+  st.write(df)
+  prediction = app.predict(df)
+  prediction_proba = app.predict_proba(df)
+  st.subheader('ผลการทำนาย (Prediction)')
+  st.write(name[prediction[0]])
+  if name[prediction[0]]:
+    st.error(name[1])
+  
+    
+    
+  st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+  st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+  st.write(prediction_proba)
 with left:
   st.header('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
   st.subheader('กรอกข้อมูล')
+  
+  
   
   def user_input_features():
     Age = left.slider('อายุเท่าไหร่',0,100,22):
@@ -108,24 +124,7 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
 df = user_input_features()
 
   
-with right:
-  st.subheader('ทำการประเมินความเสี่ยง')
-  st.write(df)
 
-  prediction = app.predict(df)
-  prediction_proba = app.predict_proba(df)
-
-
-  st.subheader('ผลการทำนาย (Prediction)')
-  st.write(name[prediction[0]])
-  if name[prediction[0]]:
-    st.error(name[1])
-  
-    
-    
-  st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-  st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-  st.write(prediction_proba)
 
   #st.write([prediction])
   
