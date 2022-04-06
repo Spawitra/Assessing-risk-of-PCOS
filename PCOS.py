@@ -3,7 +3,6 @@ import pandas as pd
 import joblib
 from joblib import dump, load
 from PIL import Image
-
 HairG = Image.open("hairgrowP.jpg")
 Skindarken = Image.open("skin darkenP.jpg")
 
@@ -15,19 +14,14 @@ st.write(''' ## แอปประเมินความเสี่ยงโ�
 ''')
 
 left, mid, right = st.columns(3)
- 
-
  with left:
   st.header('แบบประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ')
   st.subheader('กรอกข้อมูล')
-  
-  
-  
   def user_input_features():
     Age = left.slider('อายุเท่าไหร่',0,100,22)
-      st.write('อายุ', Age,'ปี')
+    st.write('อายุ', Age,'ปี')
     Weight= left.slider('น้ำหนัก (Kg)เท่าไหร่',0,150,79)
-      st.write('น้ำหนัก', Weight, 'กิโลกรัม')
+    st.write('น้ำหนัก', Weight, 'กิโลกรัม')
     st.write(' # --------------------------------------')
     Cycle = left.slider('ประจำเดือนมากี่วัน',0,31,7)
     st.write('รอบเดือนมา', Cycle, 'วัน')
@@ -109,22 +103,22 @@ https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face
     
 df = user_input_features()
 
-with right:
-  st.subheader('ทำการประเมินความเสี่ยง')
-  st.write(df)
-  prediction = app.predict(df)
-  prediction_proba = app.predict_proba(df)
-  st.subheader('ผลการทำนาย (Prediction)')
-  
-  if name[prediction[0]]):
-    st.st.success(name[0])
-    
-  if name[prediction[1]]:
-    st.error(name[1])
-    
-  st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-  st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-  st.write(prediction_proba)
+ with right:
+   st.subheader('ทำการประเมินความเสี่ยง')
+   st.write(df)
+   prediction = app.predict(df)
+   prediction_proba = app.predict_proba(df)
+   st.subheader('ผลการทำนาย (Prediction)')
+
+   if name[prediction[0]]):
+     st.st.success(name[0])
+
+   if name[prediction[1]]:
+     st.error(name[1])
+
+   st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+   st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+   st.write(prediction_proba)
 
 
 
