@@ -8,15 +8,13 @@ HairG = Image.open("hairgrowP.jpg")
 Skindarken = Image.open("skin darkenP.jpg")
 
 
-st.write(""" ## แอปประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ
+st.write(''' ## แอปประเมินความเสี่ยงโรคถุงน้ำรังไข่หลายใบ
 
 ว่าคุณจะมีความเสี่ยงเป็นโรคถุงน้ำในรังไข่หลายใบหรือไม่
 
-<<< หากไม่พบแบบประเมิน คลิกลูกศรมุมซ้ายบนเพื่อเปิดทำการประเมินความเสี่ยง
+''')
 
-""")
-
-left, right = st.columns(2)
+left, mid, right = st.columns(3)
 
 
 with left:
