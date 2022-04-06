@@ -105,8 +105,8 @@ with right:
 
     if name[prediction[0]]:
         st.success(name[0])
-        elif name[prediction[1]]:
-            st.error(name[1])
+    else:
+        st.error(name[1])
 
     st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
     st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
