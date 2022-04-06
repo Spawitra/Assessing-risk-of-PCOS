@@ -120,7 +120,7 @@ with right:
 
   st.subheader('ผลการทำนาย (Prediction)')
   #st.write([prediction])
-  st.write(name[prediction[0]])
+  st.write(name[prediction[a]])
  
   
 
