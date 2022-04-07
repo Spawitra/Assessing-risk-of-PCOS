@@ -111,9 +111,11 @@ with right:
         st.balloons()
         st.subheader('ผลการทำนาย (Prediction)')
         if prediction[0]:
-            st.success(name[0])
+            st.error(name[1])   
+            
         else:
-            st.error(name[1])    
+            st.success(name[0])
+             
     
         
     st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
