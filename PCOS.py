@@ -114,27 +114,27 @@ name = ['''negative
 
 df = user_input_features()
 
-with right:
-    st.write(df)
-    prediction = app.predict(df)
-    prediction_proba = app.predict_proba(df)
-    submit = st.button('ทำการประเมินความเสี่ยง')
-    if submit:
-        
-        st.subheader('ผลการทำนาย (Prediction)')
-        if prediction[0]:
-            st.balloons()
-            st.error(name[1])   
-            
-        else:
-            st.success(name[0])
-             
-    
-        
-        st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-        st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-        st.write(prediction_proba)
-        
+
+st.write(df)
+prediction = app.predict(df)
+prediction_proba = app.predict_proba(df)
+submit = st.button('ทำการประเมินความเสี่ยง')
+if submit:
+
+    st.subheader('ผลการทำนาย (Prediction)')
+    if prediction[0]:
+        st.balloons()
+        st.error(name[1])   
+
+    else:
+        st.success(name[0])
+
+
+
+    st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+    st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+    st.write(prediction_proba)
+
 
        
 
