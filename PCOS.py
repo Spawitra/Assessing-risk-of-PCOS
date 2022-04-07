@@ -81,9 +81,9 @@ with left:
         features = pd.DataFrame(pipe, index=[0])
         return features
 app  = load('PcosApp.joblib')
-neg = st.success('''negative
+neg = success('''negative
     ท่านมีความเสี่ยงน้อย''')
-pos = st.error('''possitive
+pos = error('''possitive
 
     ท่านมีความเสี่ยง 
 
