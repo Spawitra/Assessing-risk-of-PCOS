@@ -123,7 +123,7 @@ if submit:
 
     st.subheader('ผลการทำนาย (Prediction)')
     if prediction[0]:
-        st.balloons()
+        
         st.error(name[1])   
 
     else:
