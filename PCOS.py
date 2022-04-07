@@ -66,6 +66,23 @@ with left:
         WeightGain= left.slider( 'ช่วงนี้น้ำหนักเพิ่มขึ้นหรือไม่',0,1,1)
         st.caption('น้ำหนักเพิ่มขึ้นแบบรวดเร็วหรือไม่ เช่น จาก60เพิ่มไป 70 ในระยะเวลาสั้นๆ')
         
+        with mid:
+            st.write('อายุ', Age,'ปี')
+            st.write('น้ำหนัก', Weight, 'กิโลกรัม')
+            st.write('รอบเดือนมา', Cycle, 'วัน')
+            st.write('ระยะห่างของรอบเดือน', CycleLength, 'วัน')
+            st.write('ขนเพิ่มขึ้นหรือไม่', hairGrowth)
+            st.write('รอบเดือนมา', Cycle, 'วัน')
+            st.write('ระยะห่างของรอบเดือน', CycleLength, 'วัน')
+            st.write('### สอบถามอาการ ใช่(1)หรือไม่(0) ')
+            st.write('ขนเพิ่มขึ้นหรือไม่', hairGrowth)
+            st.write('ผิวดำคล้ำตามข้อต่างๆ', SkinDarkening)
+            st.write('สิวเกิดเพิ่มขึ้น', Pimples)
+            st.write('ทานอาหารที่มีไขมันสูงหรือไม่', Fastfood)
+            st.write('หน้ามันและรูขุมขนกว้างทางด้านซ้ายหรือไม่', FollicleL)
+            st.write('หน้ามันและรูขุมขนกว้างทางด้านขวาหรือไม่' , FollicleR)
+            st.write('น้ำหนักเพิ่มขึ้น', WeightGain)
+        
         
         pipe =  { 'Age (yrs)': Age,
                 'Weight (Kg)': Weight,
@@ -83,22 +100,7 @@ with left:
     
 
     
-with mid:
-    st.write('อายุ', Age,'ปี')
-    st.write('น้ำหนัก', Weight, 'กิโลกรัม')
-    st.write('รอบเดือนมา', Cycle, 'วัน')
-    st.write('ระยะห่างของรอบเดือน', CycleLength, 'วัน')
-    st.write('ขนเพิ่มขึ้นหรือไม่', hairGrowth)
-    st.write('รอบเดือนมา', Cycle, 'วัน')
-    st.write('ระยะห่างของรอบเดือน', CycleLength, 'วัน')
-    st.write('### สอบถามอาการ ใช่(1)หรือไม่(0) ')
-    st.write('ขนเพิ่มขึ้นหรือไม่', hairGrowth)
-    st.write('ผิวดำคล้ำตามข้อต่างๆ', SkinDarkening)
-    st.write('สิวเกิดเพิ่มขึ้น', Pimples)
-    st.write('ทานอาหารที่มีไขมันสูงหรือไม่', Fastfood)
-    st.write('หน้ามันและรูขุมขนกว้างทางด้านซ้ายหรือไม่', FollicleL)
-    st.write('หน้ามันและรูขุมขนกว้างทางด้านขวาหรือไม่' , FollicleR)
-    st.write('น้ำหนักเพิ่มขึ้น', WeightGain)
+        
     
 app  = load('PcosApp.joblib')
 
