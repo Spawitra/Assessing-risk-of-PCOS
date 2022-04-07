@@ -105,15 +105,20 @@ with right:
     st.write(df)
     prediction = app.predict(df)
     prediction_proba = app.predict_proba(df)
-    if submit:
-        st.balloons()
-        right.success('''🎉 Your diploma was generated!''')
-        st.subheader('ทำการประเมินความเสี่ยง')
-        st.subheader('ผลการทำนาย (Prediction)')
-        st.write(name[prediction[0]])
-        st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-        st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-        st.write(prediction_proba)
+
+    st.balloons()
+    right.success('''🎉 Your diploma was generated!''')
+    st.subheader('ทำการประเมินความเสี่ยง')
+    st.subheader('ผลการทำนาย (Prediction)')
+    
+    if name[prediction[0]]:
+        st.success(name[0])
+     else:
+        st.error(name[1])
+        
+    st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+    st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+    st.write(prediction_proba)
         
        
 
