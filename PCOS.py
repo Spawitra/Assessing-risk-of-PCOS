@@ -118,10 +118,10 @@ with right:
              
     
         
-    st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
-    st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
-    st.write(prediction_proba)
-        
+        st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
+        st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
+        st.write(prediction_proba)
+
        
 
 
