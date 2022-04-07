@@ -102,9 +102,9 @@ name = ['''negative
 
 df = user_input_features()
 with right:
-     st.write(df)
-        prediction = app.predict(df)
-        prediction_proba = app.predict_proba(df)
+    st.write(df)
+    prediction = app.predict(df)
+    prediction_proba = app.predict_proba(df)
     if submit:
         st.balloons()
         right.success('''🎉 Your diploma was generated!''')
