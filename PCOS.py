@@ -106,16 +106,14 @@ with right:
     st.write(df)
     prediction = app.predict(df)
     prediction_proba = app.predict_proba(df)
-
-    st.balloons()
-    st.success('''🎉 Your diploma was generated!''')
-    st.subheader('ทำการประเมินความเสี่ยง')
-    st.subheader('ผลการทำนาย (Prediction)')
-    if name[prediction[0]]:
-      st.success(name[0])
-    else:
-        st.error(name[1]) 
-        
+    submit = st.button('ทำการประเมินความเสี่ยง')
+    if submit:
+        st.balloons()
+        st.subheader('ผลการทำนาย (Prediction)')
+        if prediction[0]:
+            st.success(name[0])
+        else:
+            st.error(name[1])    
     
         
     st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
