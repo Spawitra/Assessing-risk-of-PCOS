@@ -110,7 +110,10 @@ with right:
     right.success('''🎉 Your diploma was generated!''')
     st.subheader('ทำการประเมินความเสี่ยง')
     st.subheader('ผลการทำนาย (Prediction)')
-   
+    if name[prediction[0]]:
+      st.success(name[0])
+    else:
+        st.error(name[1]) 
         
     
         
@@ -121,10 +124,7 @@ with right:
        
 
 
-if name[prediction[0]]:
-      st.success(name[0])
- else:
-     st.error(name[1])
+
 st.write('''รบกวนทำแบบสอบถามประสิทธิภาพของแบบทดสอบ
 ว่ามีการประเมินได้ถูกต้องมากแค่ไหน ''')
 st.write(' ### https://forms.gle/u7GK9hvWkpWjJjaD9')
