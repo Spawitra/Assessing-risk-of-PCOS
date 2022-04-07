@@ -103,7 +103,7 @@ with right:
     prediction = app.predict(df)
     prediction_proba = app.predict_proba(df)
     st.subheader('ผลการทำนาย (Prediction)')
-     st.write(name[prediction[0]])
+    st.write(name[prediction[0]])
 
 
     st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
