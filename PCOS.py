@@ -81,9 +81,9 @@ with left:
         features = pd.DataFrame(pipe, index=[0])
         return features
 app  = load('PcosApp.joblib')
-neg = success('''negative
-    ท่านมีความเสี่ยงน้อย''')
-pos = error('''possitive
+
+name = ['''negative
+    ท่านมีความเสี่ยงน้อย''', '''possitive
 
     ท่านมีความเสี่ยง 
 
@@ -94,8 +94,8 @@ pos = error('''possitive
     https://www.bangkokhospital.com/content/overweight-women-are-more-likely-to-face-polycystic-ovary-syndrome
 
 
-    ''')
-name = [neg,pos]
+    ''']
+
 df = user_input_features()
 with right:
     st.subheader('ทำการประเมินความเสี่ยง')
@@ -104,6 +104,7 @@ with right:
     prediction_proba = app.predict_proba(df)
     st.subheader('ผลการทำนาย (Prediction)')
     st.write(name[prediction[0]])
+    
 
 
     st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
