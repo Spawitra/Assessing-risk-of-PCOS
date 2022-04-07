@@ -108,9 +108,10 @@ with right:
     prediction_proba = app.predict_proba(df)
     submit = st.button('ทำการประเมินความเสี่ยง')
     if submit:
-        st.balloons()
+        
         st.subheader('ผลการทำนาย (Prediction)')
         if prediction[0]:
+            st.balloons()
             st.error(name[1])   
             
         else:
