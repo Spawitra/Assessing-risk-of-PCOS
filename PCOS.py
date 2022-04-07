@@ -81,7 +81,7 @@ with left:
         features = pd.DataFrame(pipe, index=[0])
         return features
     
-submit = form.form_submit_button("ประเมินความเสี่ยง")
+
     
 
 app  = load('PcosApp.joblib')
@@ -101,13 +101,14 @@ name = ['''negative
     ''']
 
 df = user_input_features()
+
 with right:
     st.write(df)
     prediction = app.predict(df)
     prediction_proba = app.predict_proba(df)
 
     st.balloons()
-    right.success('''🎉 Your diploma was generated!''')
+    st.success('''🎉 Your diploma was generated!''')
     st.subheader('ทำการประเมินความเสี่ยง')
     st.subheader('ผลการทำนาย (Prediction)')
     if name[prediction[0]]:
