@@ -80,7 +80,8 @@ with left:
                 'Weight gain(Y/N)': WeightGain}
         features = pd.DataFrame(pipe, index=[0])
         return features
-    submit = form.form_submit_button("ประเมินความเสี่ยง")
+    
+submit = form.form_submit_button("ประเมินความเสี่ยง")
     
 
 app  = load('PcosApp.joblib')
@@ -101,22 +102,20 @@ name = ['''negative
 
 df = user_input_features()
 with right:
-    if submit:
-        st.balloons()
-        succ = right.success("🎉 Your diploma was generated!")
-    
-        succ.subheader('ทำการประเมินความเสี่ยง')
-        st.write(df)
+     st.write(df)
         prediction = app.predict(df)
         prediction_proba = app.predict_proba(df)
+    if submit:
+        st.balloons()
+        right.success('''🎉 Your diploma was generated!''')
+        st.subheader('ทำการประเมินความเสี่ยง')
         st.subheader('ผลการทำนาย (Prediction)')
-        succ.write(name[prediction[0]])
-
-
-
+        st.write(name[prediction[0]])
         st.subheader('เปอร์เซ็นความเสี่ยง (Prediction Probability)')
         st.write('โอกาสเสี่ยงน้อย','|',  'โอกาสเสี่ยงมาก')
         st.write(prediction_proba)
+        
+       
 
 
 
