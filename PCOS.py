@@ -96,7 +96,7 @@ def user_input_features():
     
         
     
-app  = load('PcosApp.joblib')
+app  = load('AppPcos.joblib')
 
 name = ['''negative
     ท่านมีความเสี่ยงน้อย''', '''possitive
