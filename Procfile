@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run Pcos.py
+web: sh setup.sh && streamlit run PCOS.py
